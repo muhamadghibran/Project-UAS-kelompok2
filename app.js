@@ -1,38 +1,35 @@
-require('dotenv').config(); // Memuat variabel lingkungan dari file .env
-const express = require('express'); // Mengimpor Express
-const cors = require('cors'); // Mengimpor Cors untuk mengizinkan akses lintas domain
-const anggotaRoutes = require('./routes/anggota'); // Mengimpor rute untuk anggota
-const authRoutes = require('./routes/auth'); // Mengimpor rute untuk autentikasi
-const bukuRoutes = require('./routes/buku'); // Mengimpor rute untuk buku
-const peminjamanRoutes = require('./routes/peminjaman'); // Mengimpor rute untuk peminjaman
-const pengembalianRoutes = require('./routes/pengembalian'); // **Mengimpor rute untuk pengembalian**
+require('dotenv').config();
+const express = require('express'); 
+const cors = require('cors'); 
+const anggotaRoutes = require('./routes/anggota'); 
+const authRoutes = require('./routes/auth'); 
+const bukuRoutes = require('./routes/buku'); 
+const peminjamanRoutes = require('./routes/peminjaman');
+const pengembalianRoutes = require('./routes/pengembalian'); 
 
-const app = express(); // Membuat aplikasi Express
+const app = express(); 
 
-// Middleware
-app.use(cors()); // Mengizinkan akses lintas domain
-app.use(express.json()); // Middleware untuk parsing JSON dari body request
+app.use(cors()); 
+app.use(express.json()); 
 
-// Rute utama aplikasi
-app.use('/api/anggota', anggotaRoutes); // Rute untuk operasi anggota
-app.use('/api/auth', authRoutes); // Rute untuk login dan registrasi
-app.use('/api/buku', bukuRoutes); // Rute untuk operasi buku
-app.use('/api/peminjaman', peminjamanRoutes); // Rute untuk operasi peminjaman
-app.use('/api/pengembalian', pengembalianRoutes); // **Rute untuk operasi pengembalian**
 
- // Middleware untuk menangani rute yang tidak ditemukan (404)
+app.use('/api/anggota', anggotaRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/buku', bukuRoutes); 
+app.use('/api/peminjaman', peminjamanRoutes); 
+app.use('/api/pengembalian', pengembalianRoutes); 
+
+
 app.use((req, res, next) => {
-    res.status(404).json({ pesan: 'Endpoint tidak ditemukan' }); // Mengembalikan pesan error 404
+    res.status(404).json({ pesan: 'Endpoint tidak ditemukan' });
 });
 
-// Middleware untuk menangani error global
 app.use((err, req, res, next) => {
-    console.error('Kesalahan:', err.stack); // Menampilkan log error di konsol
-    res.status(500).json({ pesan: 'Terjadi kesalahan pada server', error: err.message }); // Mengembalikan pesan error 500
+    console.error('Kesalahan:', err.stack); 
+    res.status(500).json({ pesan: 'Terjadi kesalahan pada server', error: err.message });
 });
 
-// Memulai server
-const PORT = process.env.PORT || 3000; // Menggunakan port dari environment variable atau default ke 3000
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`Server berjalan di http://localhost:${PORT}`); // Pesan untuk menunjukkan bahwa server berjalan
+    console.log(`Server berjalan di http://localhost:${PORT}`); 
 });

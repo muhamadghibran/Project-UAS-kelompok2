@@ -7,7 +7,6 @@ const db = mysql.createConnection({
     database: 'perpustakaan_digital'
 });
 
-// Cek koneksi
 db.connect((err) => {
     if (err) {
         console.error('Koneksi ke database gagal:', err);

@@ -1,7 +1,6 @@
 const db = require('../config/database');
 const { body, validationResult } = require('express-validator');
 
-// Mendapatkan semua peminjaman
 exports.getAllPeminjaman = (req, res) => {
     db.query('SELECT * FROM peminjaman', (err, results) => {
         if (err) {
@@ -12,7 +11,6 @@ exports.getAllPeminjaman = (req, res) => {
     });
 };
 
-// Mendapatkan peminjaman berdasarkan ID
 exports.getPeminjamanById = (req, res) => {
     const { id } = req.params;
 
@@ -32,8 +30,7 @@ exports.getPeminjamanById = (req, res) => {
     });
 };
 
-// Menambahkan peminjaman baru
-exports.createPeminjaman = [ // Ganti `addPeminjaman` menjadi `createPeminjaman` agar konsisten
+exports.createPeminjaman = [ 
     body('id_buku').isInt({ min: 1 }).withMessage('ID buku harus berupa angka positif'),
     body('id_anggota').isInt({ min: 1 }).withMessage('ID anggota harus berupa angka positif'),
     body('tanggal_peminjaman').isDate().withMessage('Tanggal peminjaman harus berupa tanggal yang valid'),
@@ -61,7 +58,7 @@ exports.createPeminjaman = [ // Ganti `addPeminjaman` menjadi `createPeminjaman`
     }
 ];
 
-// Mengedit peminjaman berdasarkan ID
+
 exports.updatePeminjaman = [
     body('id_buku').optional().isInt({ min: 1 }).withMessage('ID buku harus berupa angka positif'),
     body('id_anggota').optional().isInt({ min: 1 }).withMessage('ID anggota harus berupa angka positif'),
@@ -82,7 +79,6 @@ exports.updatePeminjaman = [
 
         const { id_buku, id_anggota, tanggal_peminjaman, tanggal_jatuh_tempo } = req.body;
 
-        // Pastikan ada setidaknya satu field untuk diperbarui
         if (!id_buku && !id_anggota && !tanggal_peminjaman && !tanggal_jatuh_tempo) {
             return res.status(400).json({ pesan: 'Tidak ada data untuk diperbarui' });
         }
@@ -104,7 +100,7 @@ exports.updatePeminjaman = [
     }
 ];
 
-// Menghapus peminjaman berdasarkan ID
+
 exports.deletePeminjaman = (req, res) => {
     const { id } = req.params;
 

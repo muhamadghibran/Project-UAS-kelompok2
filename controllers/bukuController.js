@@ -12,11 +12,9 @@ exports.getAllBooks = (req, res) => {
     });
 };
 
-// Mendapatkan buku berdasarkan ID
 exports.getBookById = (req, res) => {
     const { id } = req.params;
 
-    // Validasi ID harus angka
     if (isNaN(id)) {
         return res.status(400).json({ pesan: 'ID buku harus berupa angka' });
     }
@@ -33,10 +31,8 @@ exports.getBookById = (req, res) => {
     });
 };
 
-// Menambahkan buku baru
-exports.addBook = [
-    // Validasi input menggunakan express-validator
-    body('judul').notEmpty().withMessage('Judul harus diisi'),
+
+exports.addBook = [    body('judul').notEmpty().withMessage('Judul harus diisi'),
     body('penulis').notEmpty().withMessage('Penulis harus diisi'),
     body('tanggal_terbit').isDate().withMessage('Tanggal terbit harus berupa tanggal yang valid'),
     body('genre').notEmpty().withMessage('Genre harus diisi'),
@@ -63,7 +59,6 @@ exports.addBook = [
     }
 ];
 
-// Mengedit buku berdasarkan ID
 exports.updateBook = [
     body('judul').optional().notEmpty().withMessage('Judul harus diisi'),
     body('penulis').optional().notEmpty().withMessage('Penulis harus diisi'),
@@ -101,7 +96,7 @@ exports.updateBook = [
     }
 ];
 
-// Menghapus buku berdasarkan ID
+
 exports.deleteBook = (req, res) => {
     const { id } = req.params;
 

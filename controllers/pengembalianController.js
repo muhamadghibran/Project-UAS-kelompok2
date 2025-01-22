@@ -1,7 +1,6 @@
 const db = require('../config/database');
 const { body, validationResult } = require('express-validator');
 
-// Mendapatkan semua data pengembalian
 exports.getAllPengembalian = (req, res) => {
     db.query('SELECT * FROM pengembalian', (err, results) => {
         if (err) {
@@ -12,7 +11,6 @@ exports.getAllPengembalian = (req, res) => {
     });
 };
 
-// Mendapatkan data pengembalian berdasarkan ID
 exports.getPengembalianById = (req, res) => {
     const { id } = req.params;
 
@@ -32,7 +30,6 @@ exports.getPengembalianById = (req, res) => {
     });
 };
 
-// Menambahkan data pengembalian baru
 exports.createPengembalian = [
     body('id_peminjaman').isInt({ min: 1 }).withMessage('ID peminjaman harus berupa angka positif'),
     body('tanggal_pengembalian').isDate().withMessage('Tanggal pengembalian harus berupa tanggal yang valid'),
@@ -60,7 +57,6 @@ exports.createPengembalian = [
     }
 ];
 
-// Mengedit data pengembalian berdasarkan ID
 exports.updatePengembalian = [
     body('id_peminjaman').optional().isInt({ min: 1 }).withMessage('ID peminjaman harus berupa angka positif'),
     body('tanggal_pengembalian').optional().isDate().withMessage('Tanggal pengembalian harus berupa tanggal yang valid'),
@@ -97,7 +93,6 @@ exports.updatePengembalian = [
     }
 ];
 
-// Menghapus data pengembalian berdasarkan ID
 exports.deletePengembalian = (req, res) => {
     const { id } = req.params;
 

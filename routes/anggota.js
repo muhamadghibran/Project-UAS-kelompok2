@@ -3,9 +3,7 @@ const router = express.Router();
 const db = require('../config/database');
 const autentikasiToken = require('../middlewares/auth');
 
-// CRUD anggota
 
-// GET semua anggota
 router.get('/', autentikasiToken, (req, res) => {
     db.query('SELECT * FROM anggota', (err, hasil) => {
         if (err) return res.status(500).json({ pesan: err.message });
@@ -14,7 +12,6 @@ router.get('/', autentikasiToken, (req, res) => {
     });
 });
 
-// GET anggota berdasarkan ID
 router.get('/:id', autentikasiToken, (req, res) => {
     const { id } = req.params;
     db.query('SELECT * FROM anggota WHERE id = ?', [id], (err, hasil) => {
@@ -24,7 +21,6 @@ router.get('/:id', autentikasiToken, (req, res) => {
     });
 });
 
-// POST menambahkan anggota baru
 router.post('/', autentikasiToken, (req, res) => {
     const { nama, email, password, tanggal_keanggotaan } = req.body;
 
@@ -43,7 +39,6 @@ router.post('/', autentikasiToken, (req, res) => {
     );
 });
 
-// PUT memperbarui anggota
 router.put('/:id', autentikasiToken, (req, res) => {
     const { id } = req.params;
     const { nama, email, password, tanggal_keanggotaan } = req.body;
@@ -68,7 +63,6 @@ router.put('/:id', autentikasiToken, (req, res) => {
     });
 });
 
-// DELETE anggota
 router.delete('/:id', autentikasiToken, (req, res) => {
     const { id } = req.params;
     db.query('SELECT * FROM anggota WHERE id = ?', [id], (err, hasil) => {

@@ -1,6 +1,5 @@
 const db = require('../config/database');
 
-// Mendapatkan semua data anggota
 exports.ambilSemuaAnggota = (req, res) => {
     db.query('SELECT * FROM anggota', (err, hasil) => {
         if (err) return res.status(500).json({ error: err.message });
@@ -12,7 +11,6 @@ exports.ambilSemuaAnggota = (req, res) => {
 exports.tambahAnggota = (req, res) => {
     const { nama, email, password, tanggal_keanggotaan } = req.body;
 
-    // Validasi input
     if (!nama || !email || !password || !tanggal_keanggotaan) {
         return res.status(400).json({ pesan: 'Semua kolom wajib diisi' });
     }
@@ -27,12 +25,10 @@ exports.tambahAnggota = (req, res) => {
     );
 };
 
-// Memperbarui data anggota berdasarkan ID
 exports.perbaruiAnggota = (req, res) => {
     const { id } = req.params;
     const { nama, email, password, tanggal_keanggotaan } = req.body;
 
-    // Validasi input
     if (!nama || !email || !password || !tanggal_keanggotaan) {
         return res.status(400).json({ pesan: 'Semua kolom wajib diisi' });
     }
@@ -52,7 +48,6 @@ exports.perbaruiAnggota = (req, res) => {
     });
 };
 
-// Menghapus data anggota berdasarkan ID
 exports.hapusAnggota = (req, res) => {
     const { id } = req.params;
 
