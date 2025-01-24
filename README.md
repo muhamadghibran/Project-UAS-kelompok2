@@ -1,4 +1,4 @@
----
+![5  UPDATE Memperbaharui data pengembalian peminjam](https://github.com/user-attachments/assets/dce60468-d970-43a2-96d8-42d3d7be1a5d)![5  UPDATE Memperbaharui data peminjam](https://github.com/user-attachments/assets/14aca9bf-8ff8-4def-895c-5097199a2401)---
 
 # 1. **Kode: Database Connection (`database.js`)**
 
@@ -1252,3 +1252,32 @@ Fungsi login digunakan untuk autentikasi pengguna dengan email dan password. Jik
 - Tambahkan middleware untuk membatasi jumlah percobaan login guna mencegah serangan brute force.
 
 ---
+
+---
+#1. **Pengujian end point anggota**
+1. ![1  GET Mendapatkan daftar semua anggota](https://github.com/user-attachments/assets/f10350d9-28c8-4838-b183-324a62625815)
+2. ![2  GET Mendapatkan daftar anggota menggunakan ID](https://github.com/user-attachments/assets/d2adb7cb-7c8c-42db-a5c1-2de72e7f8945)
+3. ![3  POST Menambahkan Anggota Baru](https://github.com/user-attachments/assets/7b725d9a-5570-4748-9ef7-daa88ee51053)
+4. ![4  DELETE Menghapus anggota yang ada di daftar](https://github.com/user-attachments/assets/f0cc81f5-2ad1-4ab0-a07c-acd22f93c02f)
+5. ![5  UPDATE Memperbaharui anggota yang ada di daftar](https://github.com/user-attachments/assets/06d546ea-765d-4228-8eaf-ede865f41fb0)
+
+#2. **Pengujian end point buku**
+1.![1  GET Mendapatkan daftar buku di perpustakaan](https://github.com/user-attachments/assets/06c28ea4-2de3-4830-81f6-e7ce2282e0f9)
+2.![2  GET Mendapatkan buku di perpustakaan menggunakan ID](https://github.com/user-attachments/assets/4ec2b7c1-db22-44f8-8957-de8d1ebb9664)
+3.![3  POST Menambahkan buku baru di perpustakaan](https://github.com/user-attachments/assets/c3a811ef-a526-4f0e-acd3-1e174bc0dca1)
+4.![4  DELETE Menghapus buku di dalam perpustakaan](https://github.com/user-attachments/assets/f37c5ae0-d381-4839-b49b-d2fc03b8d24a)
+5.![5  UPDATE Memperbaharui buku yang ada di perpustakaan menggunakan ID](https://github.com/user-attachments/assets/a8933bf2-e4fa-4042-afc6-b616963d3afe)
+
+#3. **Pengujian end point peminjaman**
+1.![1  GET Mendapatkan daftar semua peminjaman](https://github.com/user-attachments/assets/fcb6dc57-eda0-4112-bce3-b99d5849eef7)
+2.![2  GET Mendapatkan daftar peminjam menggunakan ID](https://github.com/user-attachments/assets/b3d20ab0-9b36-497a-81c3-182c4076626c)
+3.![3  POST  Menambahkan data peminjaman](https://github.com/user-attachments/assets/ab18d161-b6f8-4118-8d0d-2d994f1078f4)
+4.![4  DELETE Menghapus data peminjam menggunakan ID](https://github.com/user-attachments/assets/7903ae18-71b2-4457-88d9-1900821b6f91)
+5.![5  UPDATE Memperbaharui data peminjam](https://github.com/user-attachments/assets/d3a634c8-518b-4c25-bf21-db49d6be920e)
+
+#4. **Pengujian end point pengembalian**
+1.![1  GET Mendapatkan semua data pengembalian](https://github.com/user-attachments/assets/24ff388f-e9f3-4705-90ed-7fcb2261d342)
+2.![2  Mendapatkan data dari daftar peminjam menggunakan ID](https://github.com/user-attachments/assets/ae9120a1-1d85-4321-863f-50f408e2f22c)
+3.![3  POST Menambahkan data pengembalian](https://github.com/user-attachments/assets/ede119dc-5dcb-46d3-8e6a-c99f2fcca831)
+4.![4  DELETE Menghapus data peminjam menggunakan ID](https://github.com/user-attachments/assets/828f67aa-d70a-4a8b-8174-0f823035b158)
+5.![5  UPDATE Memperbaharui data pengembalian peminjam](https://github.com/user-attachments/assets/285a1ad2-b039-49d0-8f2a-7e1766385615)
