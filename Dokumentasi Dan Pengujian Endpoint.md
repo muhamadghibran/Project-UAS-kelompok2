@@ -1,4 +1,4 @@
-![5  UPDATE Memperbaharui data pengembalian peminjam](https://github.com/user-attachments/assets/dce60468-d970-43a2-96d8-42d3d7be1a5d)![5  UPDATE Memperbaharui data peminjam](https://github.com/user-attachments/assets/14aca9bf-8ff8-4def-895c-5097199a2401)---
+---
 
 # 1. **Kode: Database Connection (`database.js`)**
 
